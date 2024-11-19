@@ -11,15 +11,17 @@ img{
 
 .preamble_left{
     padding-left: 50px;
-    font-family: sans-serif;
 }
 
 .preamble_left h1{
     font-size: 32px;
+    line-height: normal;
+    margin-bottom: 15px;
 }
 
 .preamble_left p{
     font-size: 16px;
+    margin-bottom: 15px;
 }
 
 .preamble_left button{
@@ -34,15 +36,14 @@ img{
 }
 
 .preamble_right img{
-    max-width: 30vw;
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
 }
 
 @media (max-width: 490px) {
     .preamble_right img {
         margin-top: 20px;
-        object-fit: contain;
-        max-width: 100%;
-        height: auto;
     }
 
 
