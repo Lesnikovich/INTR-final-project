@@ -5,7 +5,8 @@
 
     <div class="slds-grid slds-wrap">
         <template for:each={data} for:item="quickLinks">
-            <div class="slds-col image_section slds-align-absolute_center slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12" key={quickLinks.id}>
+            <div onclick={handleClick} data-id={quickLinks.id}
+            class="slds-col image_section slds-align_absolute-center slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12" key={quickLinks.id}>
                 <img src={quickLinks.image} alt="QuickLinks item"/>
                 <div class="overlay"></div>
                 <div class="title_class slds-text-align_center">{quickLinks.text}</div>
