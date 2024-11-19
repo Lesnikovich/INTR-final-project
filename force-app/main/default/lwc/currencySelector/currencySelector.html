@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Выберите валюту">
+        <div class="slds-p-horizontal_medium">
+            <lightning-combobox
+                label="Валюта"
+                value={selectedCurrency}
+                options={currencyOptions}
+                onchange={handleCurrencyChange}
+            ></lightning-combobox>
+        </div>
+    </lightning-card>
+</template>
