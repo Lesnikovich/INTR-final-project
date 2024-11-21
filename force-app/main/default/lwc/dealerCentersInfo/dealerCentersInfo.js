@@ -1,33 +1,42 @@
 import { LightningElement,wire,track,api } from 'lwc';
-import getCompanyLocations from '@salesforce/apex/CarCentersController.getCompanyLocations';
+import getCenterInfo from '@salesforce/apex/CarCentersController.getCenterInfo';
 
 export default class DealerCentersInfo extends LightningElement {
-    @api accountNameParam='United';    
-    @track error; 
-    @track mapMarkers = [];
-    @track markersTitle = 'Aitechone Technologies';
-    @track zoomLevel = 4;
+    @api recordTypeName = 'Dealer Center';
+    carCenters; 
+    error;
+    mapMarkers = [];
 
-    @wire(getCompanyLocations, { accountNameInitial: '$accountNameParam'})
-    wiredOfficeLocations({ error, data }) {
-        if (data) {            
-            data.forEach(dataItem => {
+    @wire(getCenterInfo, { recordTypeName: '$recordTypeName' })
+    wiredCarCenters({ data, error }) {
+        if (data) {
+            this.carCenters = data.map(center => ({
+                ...center,
+                address: JSON.parse(center.address)
+            }));
+            this.carCenters.forEach(center => {
                 this.mapMarkers = [...this.mapMarkers ,
                     {
                         location: {
-                            City: dataItem.BillingCity,
-                            Country: dataItem.BillingCountry,
+                            Country: center.address.country,
+                            City: center.address.city,
+                            Street: center.address.street,
                         },
         
-                        icon: 'custom:custom26',
-                        title: dataItem.Name,
+                        icon: 'custom:custom31',
+                        title: center.name,
+                        description: `${center.address.street} <br>
+                                        Телефон: ${center.phone} <br> 
+                                        Email: ${center.email} <br>
+                                        Время работы: ${center.workingHours}
+                                        `,
                     }                                    
                 ];
               });            
             this.error = undefined;
         } else if (error) {
             this.error = error;
-            this.contacts = undefined;
+            this.carCenters = undefined;
         }
     }
 }
