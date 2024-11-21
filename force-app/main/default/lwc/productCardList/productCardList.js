@@ -38,14 +38,6 @@ export default class ProductCardList extends LightningElement {
     }
     
     generatePDF() {
-        try {
-            if (this.selectedProduct && this.selectedProduct.name) {
-                window.open(`/apex/GeneratePDFPage?productName=${this.selectedProduct.name}`);
-            } else {
-                console.error('No product selected for PDF generation');
-            }
-        } catch (error) {
-            console.error('Error generating PDF:', error);
-        }
+        
     }
 }
