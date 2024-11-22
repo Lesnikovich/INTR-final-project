@@ -1,0 +1,8 @@
+<apex:page controller="PDFController" renderAs="pdf" contentType="application/pdf">
+    <apex:outputPanel style="font-family: Arial, sans-serif; font-size: 14px;">
+        <h1>Dynamic PDF report</h1>
+        <p>Сreate date: {!NOW()}</p>
+        <p>Client name: {!clientName}</p>
+        <p>Order: {!orderDetails}</p>
+    </apex:outputPanel>
+</apex:page>

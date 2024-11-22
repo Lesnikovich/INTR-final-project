@@ -38,6 +38,6 @@ export default class ProductCardList extends LightningElement {
     }
     
     generatePDF() {
-        
+        window.open('https://resilient-goat-5sp5je-dev-ed.trailblaze.my.site.com/lada/apex/PriceBook', '_self');
     }
 }
