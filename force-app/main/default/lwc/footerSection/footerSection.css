@@ -68,7 +68,10 @@ ul{
 }
 
 .social-links{
-    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
 }
 
 .footer-item .social-links a{
@@ -76,7 +79,6 @@ ul{
     height: 48px;
     width: 48px;
     background-color: rgba(255, 255, 255, 0.1);
-    margin: 0 10px 10px 0;
     text-align: center;
     line-height: 40px;
     border-radius: 50%;
@@ -92,12 +94,13 @@ ul{
     height: 28px;
     width: 28px;
     margin: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 @media (max-width: 767px){
+    .footer{
+        padding-bottom: 0px;
+    }
+
     .footer-item{
         width: 50%;
         margin-bottom: 30px;;
@@ -105,6 +108,7 @@ ul{
 }
 
 @media (max-width: 574px){
+
     .footer-item{
         width: 100%;
     }
