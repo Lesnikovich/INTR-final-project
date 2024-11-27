@@ -38,6 +38,8 @@ export default class ProductCardList extends LightningElement {
     }
     
     generatePDF() {
-        window.open('https://resilient-goat-5sp5je-dev-ed.trailblaze.my.site.com/lada/apex/PriceBook', '_self');
+        const family = this.selectedProduct.name;
+        const currency = sessionStorage.getItem('selectedCurrency') || 'BYN';
+        window.open(`https://resilient-goat-5sp5je-dev-ed.trailblaze.my.site.com/lada/apex/PriceBook?family=${encodeURIComponent(family)}&currencyAbbr=${encodeURIComponent(currency)}`, '_blank');
     }
 }

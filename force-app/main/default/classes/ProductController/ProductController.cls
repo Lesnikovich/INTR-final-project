@@ -1,4 +1,4 @@
-public with sharing class ProductController {
+public without sharing class ProductController {
     @AuraEnabled(cacheable=true)
     public static List<String> getProductFamilies() {
         List<AggregateResult> results = [SELECT Family FROM Product2 WHERE Family != null GROUP BY Family];

@@ -2,11 +2,10 @@ import { LightningElement } from 'lwc';
 
 export default class CurrencySelector extends LightningElement {
     currencyOptions = [
+        { label: 'BYN - Белорусский рубль', value: 'BYN' },
+        { label: 'RUB - Российский рубль', value: 'RUB' },
         { label: 'USD - Доллар США', value: 'USD' },
         { label: 'EUR - Евро', value: 'EUR' },
-        { label: 'RUB - Российский рубль', value: 'RUB' },
-        { label: 'JPY - Японская иена', value: 'JPY' },
-        { label: 'GBP - Британский фунт', value: 'GBP' }
     ];
 
     selectedCurrency = '';

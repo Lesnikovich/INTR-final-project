@@ -1,18 +1,24 @@
 <template>
-    <lightning-card title="Product Families">
-        <div class="card-container">
-            <template for:each={productFamilies} for:item="family">
-                <div 
-                    key={family.name} 
-                    class="product-card" 
-                    data-name={family.name} 
-                    onclick={handleCardClick}>
-                    <img src={family.image} alt={family.name} class="product-image" />
-                    <p>{family.name}</p>
-                </div>
-            </template>
-        </div>
-    </lightning-card>
+
+    <div class="modelRange-title">
+        <h1>Модельный ряд</h1>
+    </div>
+
+
+
+    <div class="card-container">
+        <template for:each={productFamilies} for:item="family">
+            <div 
+                key={family.name} 
+                class="product-card" 
+                data-name={family.name} 
+                onclick={handleCardClick}>
+                <img src={family.image} alt={family.name} class="product-image" />
+                <p>{family.name}</p>
+            </div>
+        </template>
+    </div>    
+    
 
     <template if:true={isModalOpen}>
         <section class="slds-modal slds-fade-in-open">
@@ -20,7 +26,7 @@
                 <header class="slds-modal__header">
                     <h2>{selectedProduct.name}</h2>
                 </header>
-                <div class="slds-modal__content slds-p-around_medium">
+                <div class="slds-modal__content">
                     <img src={selectedProduct.image} alt={selectedProduct.name} />
                     <p>{selectedProduct.description}</p>
                 </div>
@@ -40,4 +46,5 @@
         </section>
         <div class="slds-backdrop slds-backdrop_open"></div>
     </template>
+    
 </template>

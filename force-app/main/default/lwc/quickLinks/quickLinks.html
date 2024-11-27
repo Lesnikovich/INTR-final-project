@@ -1,16 +1,21 @@
 <template>
-    <div class="quickLinks slds-p-top_large">
+    <div class="quickLinks-title slds-p-top_large">
         <h1 class="slds-text-align_center">Quick Links</h1>
     </div>
 
-    <div class="slds-grid slds-wrap">
+    <div class="quickLinks-items slds-grid slds-wrap">
         <template for:each={data} for:item="quickLinks">
-            <div onclick={handleClick} data-id={quickLinks.id}
-            class="slds-col image_section slds-align_absolute-center slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12" key={quickLinks.id}>
-                <img src={quickLinks.image} alt="QuickLinks item"/>
-                <div class="overlay"></div>
-                <div class="title_class slds-text-align_center">{quickLinks.text}</div>
+            <div 
+                class="quickLinks-item slds-col image-section slds-align_absolute-center slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12" 
+                key={quickLinks.id}
+            >
+                <div class="image-container" onclick={handleClick} data-id={quickLinks.id} >
+                    <img src={quickLinks.image} alt="QuickLinks item" />
+                    <div class="overlay"></div>
+                    <div class="title">{quickLinks.text}</div>
+                </div>
             </div>
         </template>
     </div>
+    
 </template>

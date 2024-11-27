@@ -1,28 +1,28 @@
 import { LightningElement } from 'lwc';
-import Image_Url from '@salesforce/resourceUrl/carImages'
+import Image_Url from '@salesforce/resourceUrl/quickLinksImg'
 import {NavigationMixin} from 'lightning/navigation';
 
 export default class QuickLinks extends NavigationMixin(LightningElement) {
     data = [
         {
             id: 1,
-            image: Image_Url + '/LadaVestaSedan.png',
+            image: Image_Url + '/ModelRange.jpg',
             text: 'Модельный ряд',
         },
         {
             id: 2,
-            image: Image_Url + '/LadaVestaSedan.png',
-            text: 'Модельный ряд',
+            image: Image_Url + '/DealerCenters.jpg',
+            text: 'Дилерские центры',
         },
         {
             id: 3,
-            image: Image_Url + '/LadaVestaSedan.png',
-            text: 'Модельный ряд',
+            image: Image_Url + '/ServiceCenters.jpg',
+            text: 'Сервисные центры',
         },
         {
             id: 4,
-            image: Image_Url + '/LadaVestaSedan.png',
-            text: 'Модельный ряд',
+            image: Image_Url + '/TestDrive.jpg',
+            text: 'Записаться на тест-драйв',
         },
     ];
 
@@ -38,6 +38,9 @@ export default class QuickLinks extends NavigationMixin(LightningElement) {
                 this.navigateToPages('centers__c');
             break;
             case 3:
+                this.navigateToPages('ServiceCenters__c');
+            break;
+            case 4:
                 this.navigateToPages('testdrive__c');
             break;
             default:

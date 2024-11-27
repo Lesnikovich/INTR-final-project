@@ -1,8 +1,44 @@
-<apex:page controller="PDFController" renderAs="pdf" contentType="application/pdf">
-    <apex:outputPanel style="font-family: Arial, sans-serif; font-size: 14px;">
-        <h1>Dynamic PDF report</h1>
-        <p>Сreate date: {!NOW()}</p>
-        <p>Client name: {!clientName}</p>
-        <p>Order: {!orderDetails}</p>
-    </apex:outputPanel>
+<apex:page controller="PDFController" renderAs="PDF" contentType="text/html;charset=UTF-8" applyHtmlTag="false" showHeader="false" applyBodyTag="false">
+    <head>
+        <style>
+            
+        </style>
+    </head>
+    <body style="font-family: Arial Unicode MS, sans-serif; font-size: 14px; line-height: 1.6; margin: 20px; background-color: #f4f4f9; color: #333;">
+        
+        <table style="font-family:sans-serif; padding-bottom:30px;">
+            <tr>
+                <td><apex:image id="logo2" value="{!$Resource.logoDark}" width="287" height="57"/></td>
+                <td style="font:24pt; padding-left:250px;">PriceBook</td>
+            </tr>
+        </table>
+
+        <h1 style="color: #2980b9; font-size: 20px; margin-top: 40px;">
+            Модельный ряд: {!family}
+        </h1>
+        <p style="font-size: 16px; color: #7f8c8d;">
+           Клиентская линия LADA : 
+           <a href="tel:+375293567407">
+                8 029 356 74 07
+            </a>
+        </p>
+        
+        <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead style="background-color: #3498db; color: white; text-align: left; padding: 10px;">
+                <tr>
+                    <th style="padding: 10px; font-size: 16px;">Название</th>
+                    <th style="padding: 10px; font-size: 16px;">Цена ({!currencyAbbr})</th>
+                </tr>
+            </thead>
+            <tbody>
+                <apex:repeat value="{!products}" var="product">
+                    <tr style="background-color: #ecf0f1; border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; font-size: 16px; color: #2c3e50;">{!product.name}</td>
+                        <td style="padding: 10px; font-size: 16px; color: #2c3e50;">{!product.price}</td>
+                    </tr>
+                </apex:repeat>
+            </tbody>
+        </table>
+
+    </body>
 </apex:page>

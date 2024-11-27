@@ -1,4 +1,4 @@
-public with sharing class CarCentersController {
+public without sharing class CarCentersController {
    public class CarCenter {
       @AuraEnabled public Id id;
       @AuraEnabled public String name;
