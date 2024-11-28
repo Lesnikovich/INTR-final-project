@@ -1,11 +1,13 @@
 import { LightningElement, wire, track } from 'lwc';
 import getProductFamilies from '@salesforce/apex/ProductController.getProductFamilies';
 import Image_Url from '@salesforce/resourceUrl/carImages'
+import labels from './labels';
 
 export default class ProductCardList extends LightningElement {
     productFamilies = [];
     isModalOpen = false;
     selectedProduct = {};
+    labels = labels;
 
     @wire(getProductFamilies)
     wiredProducts({ data, error }) {
@@ -13,7 +15,7 @@ export default class ProductCardList extends LightningElement {
             this.productFamilies = data.map(family => ({
                 name: family,
                 image: Image_Url + `/${family.replace(/\s+/g, '')}.png`,
-                description: family
+                description: this.labels[family.replace(/\s+/g, '')]
             }));
         } else if (error) {
             console.error('Error fetching product families:', error);

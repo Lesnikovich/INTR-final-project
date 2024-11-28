@@ -1,34 +1,14 @@
 <template>
-    <lightning-card title="Dealer car centers">
+    <lightning-card title="Dealer Car Centers">
         <template if:true={carCenters}>
-            <div class="slds-m-around_medium">
-                <h1 class="slds-text-heading_small">Aitechone</h1>
-                <p class="slds-text-body_regular">Office locations</p>
+            <div class="map-container">
+                <lightning-map 
+                    map-markers={mapMarkers} 
+                    markers-title="Дилерские центры">
+                </lightning-map>
             </div>
-            <lightning-map map-markers={mapMarkers} markers-title="Дилерские центры:">
-        
-            </lightning-map>
-        </template> 
-        <template if:true={carCenters}>
-            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Serial Number</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <template for:each={carCenters} for:item="center">
-                        <tr key={center.id}>
-                            <td>{center.address.country}</td>
-                            <td>{center.email}</td>
-                            <td>{center.phone}</td>
-                        </tr>
-                    </template>
-                </tbody>
-            </table>
         </template>
+
         <template if:true={error}>
             <p class="slds-text-color_error">Error: {error.body.message}</p>
         </template>

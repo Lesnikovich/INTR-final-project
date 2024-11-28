@@ -135,12 +135,15 @@
 
 @media (max-width:780px) {
     .slds-modal__container {
-        height: auto;
+        font-size: 1.2rem; 
     }
 }
 
 @media (max-width:480px) {
     .slds-modal__header {
         font-size: 1.2rem; 
+    }
+    .slds-modal__container {
+        font-size: 1rem; 
     }
 }

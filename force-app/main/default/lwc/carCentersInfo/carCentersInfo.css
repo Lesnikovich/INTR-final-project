@@ -1,0 +1,23 @@
+.lightning-card {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+    margin: 15px;
+    border: 1px solid #d8dde6;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+lightning-map {
+    height: auto;
+}
+
+@media (max-width: 470px) {
+    
+}

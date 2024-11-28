@@ -1,9 +1,9 @@
-import { LightningElement, wire, api} from 'lwc';
+import { LightningElement, wire, api } from 'lwc';
 import getCenterInfo from '@salesforce/apex/CarCentersController.getCenterInfo';
 
 export default class CarCentersInfo extends LightningElement {
     @api recordTypeName;
-    carCenters; 
+    carCenters;
     error;
     mapMarkers = [];
 
@@ -14,25 +14,21 @@ export default class CarCentersInfo extends LightningElement {
                 ...center,
                 address: JSON.parse(center.address)
             }));
-            this.carCenters.forEach(center => {
-                this.mapMarkers = [...this.mapMarkers ,
-                    {
-                        location: {
-                            Country: center.address.country,
-                            City: center.address.city,
-                            Street: center.address.street,
-                        },
-        
-                        icon: 'custom:custom31',
-                        title: center.name,
-                        description: `${center.address.street} <br>
-                                        Телефон: ${center.phone} <br> 
-                                        Email: ${center.email} <br>
-                                        Время работы: ${center.workingHours}
-                                        `,
-                    }                                    
-                ];
-              });            
+            this.mapMarkers = this.carCenters.map(center => ({
+                location: {
+                    Country: center.address.country,
+                    City: center.address.city,
+                    Street: center.address.street,
+                },
+                icon: 'custom:custom31',
+                title: center.name,
+                description: `
+                    ${center.address.street}, ${center.address.city}, ${center.address.country} <br>
+                    Телефон: ${center.phone} <br> 
+                    Email: ${center.email} <br>
+                    Время работы: ${center.workingHours}
+                `,
+            }));
             this.error = undefined;
         } else if (error) {
             this.error = error;
