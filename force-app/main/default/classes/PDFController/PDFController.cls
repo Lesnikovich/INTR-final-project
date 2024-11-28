@@ -1,34 +1,18 @@
 public without sharing class PDFController {
-    public List<ProductWrapper> products { get; private set; }
-    public String family { get; private set; }
-    public String currencyAbbr { get; private set; }
-    public Decimal currencyScale { get; private set; }
-    public Decimal currencyRate { get; private set; }
-    
-
-    public class ProductWrapper {
-        public String name { get; set; }
-        public String code {get; set;}
-        public Decimal price { get; set; }
-        public String currencyName { get; set; }
-
-        ProductWrapper(String name, String code, Decimal price, String currencyName) {
-            this.name = name;
-            this.code = code;
-            this.price = price;
-            this.currencyName = currencyName;
-        }
-    }
-
-    public String clientName { get; private set; }
-    public String orderDetails { get; private set; }
+    public List<ProductWrapper> products { get; set; }
+    public String family { get; set; }
+    public String currencyAbbr { get; set; }
+    public Decimal currencyScale { get; set; }
+    public Decimal currencyRate { get; set; }
+    public String clientName { get; set; }
+    public String orderDetails { get; set; }
 
     public PDFController() {
         family = ApexPages.currentPage().getParameters().get('family');
         currencyAbbr = ApexPages.currentPage().getParameters().get('currencyAbbr');
 
         if(currencyAbbr!='BYN'){
-        DailyRate__mdt dailyRate = [SELECT Cur_Scale__c, Cur_OfficialRate__c FROM DailyRate__mdt WHERE Cur_Abbreviation__c = :currencyAbbr LIMIT 1];
+            DailyRate__mdt dailyRate = [SELECT Cur_Scale__c, Cur_OfficialRate__c FROM DailyRate__mdt WHERE Cur_Abbreviation__c = :currencyAbbr LIMIT 1];
             currencyScale = dailyRate.Cur_Scale__c;
             currencyRate = dailyRate.Cur_OfficialRate__c;
         }
@@ -57,6 +41,20 @@ public without sharing class PDFController {
         }
 
         products = productList;
+    }
+
+    public class ProductWrapper {
+        public String name { get; set; }
+        public String code {get; set;}
+        public Decimal price { get; set; }
+        public String currencyName { get; set; }
+
+        ProductWrapper(String name, String code, Decimal price, String currencyName) {
+            this.name = name;
+            this.code = code;
+            this.price = price;
+            this.currencyName = currencyName;
+        }
     }
 }
 

@@ -1,12 +1,13 @@
-import { LightningElement,wire} from 'lwc';
+import { LightningElement, wire, api} from 'lwc';
 import getCenterInfo from '@salesforce/apex/CarCentersController.getCenterInfo';
 
-export default class ServiceCentersInfo extends LightningElement {
+export default class CarCentersInfo extends LightningElement {
+    @api recordTypeName;
     carCenters; 
     error;
     mapMarkers = [];
 
-    @wire(getCenterInfo, { recordTypeName: 'Service Center' })
+    @wire(getCenterInfo, { recordTypeName: '$recordTypeName' })
     wiredCarCenters({ data, error }) {
         if (data) {
             this.carCenters = data.map(center => ({

@@ -8,7 +8,7 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default">
-            <property name="pageTypeName" type="String" datasource="Home,Dealer Centers,Service Centers,Test Drive" default="Home"></property>
+            <property name="recordTypeName" type="String" datasource="Dealer Center,Service Center" default="Dealer Center"></property>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

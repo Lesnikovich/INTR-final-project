@@ -24,7 +24,6 @@ public class CurrencyUpdateTest {
 
     @isTest
     static void testScheduler() {
-
         Test.setMock(HttpCalloutMock.class, new MockHttpResponseGenerator());
 
         Test.startTest();
@@ -33,6 +32,7 @@ public class CurrencyUpdateTest {
 
         CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, NextFireTime
                           FROM CronTrigger WHERE Id = :jobId];
+
         Assert.areEqual('0 0 0 * * ?', ct.CronExpression, 'The Cron expression matches');
         Assert.areEqual(0, ct.TimesTriggered, 'The task was not completed immediately');
     }

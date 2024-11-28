@@ -10,7 +10,7 @@ img{
 }
 
 .preamble_left{
-    padding-left: 50px;
+    padding: 25px;
 }
 
 .preamble_left h1{
@@ -21,7 +21,6 @@ img{
 
 .preamble_left p{
     font-size: 16px;
-    margin-bottom: 15px;
 }
 
 .preamble_left button{
@@ -50,15 +49,20 @@ img{
     .preamble_left{
         padding-left: 0px;
         font-family: sans-serif;
-        margin-top: 20px;
+        padding: 25px 10px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
+
+    .preamble_left h1{
+        font-size: 28px;
+        text-align: center;
+    }
     
 
-    .hero_left p{
+    .preamble_left p{
         text-align: center;
     }
 }

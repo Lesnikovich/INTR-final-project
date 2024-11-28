@@ -28,7 +28,6 @@ export default class QuickLinks extends NavigationMixin(LightningElement) {
 
     handleClick(event){
         let selectedCard = Number(event.currentTarget.dataset.id);
-        console.log('selectedCard:'+JSON.stringify(selectedCard));
 
         switch (selectedCard) {
             case 1:
