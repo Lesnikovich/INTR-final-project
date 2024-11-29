@@ -1,11 +1,20 @@
 import { LightningElement, wire, api } from 'lwc';
+import labels from './labels';
 import getCenterInfo from '@salesforce/apex/CarCentersController.getCenterInfo';
 
 export default class CarCentersInfo extends LightningElement {
     @api recordTypeName;
+    labels = labels;
     carCenters;
     error;
     mapMarkers = [];
+    locationTitle;
+    markersTitle;
+    
+    connectedCallback(){
+        this.locationTitle = (this.recordTypeName === 'Dealer Center')?this.labels.DealershipLocation:this.labels.ServiceLocation;
+        this.markersTitle = (this.recordTypeName === 'Dealer Center')?this.labels.DealershipPreambleTitle:this.labels.ServicePreambleTitle;
+    }
 
     @wire(getCenterInfo, { recordTypeName: '$recordTypeName' })
     wiredCarCenters({ data, error }) {
@@ -24,6 +33,7 @@ export default class CarCentersInfo extends LightningElement {
                 title: center.name,
                 description: `
                     ${center.address.street}, ${center.address.city}, ${center.address.country} <br>
+                    Серийный номер: ${center.serialNumber} <br>
                     Телефон: ${center.phone} <br> 
                     Email: ${center.email} <br>
                     Время работы: ${center.workingHours}

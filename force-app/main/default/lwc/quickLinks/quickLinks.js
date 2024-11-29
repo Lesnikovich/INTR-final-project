@@ -1,5 +1,6 @@
 import { LightningElement } from 'lwc';
 import Image_Url from '@salesforce/resourceUrl/quickLinksImg'
+import labels from './labels';
 import {NavigationMixin} from 'lightning/navigation';
 
 export default class QuickLinks extends NavigationMixin(LightningElement) {
@@ -7,22 +8,22 @@ export default class QuickLinks extends NavigationMixin(LightningElement) {
         {
             id: 1,
             image: Image_Url + '/ModelRange.jpg',
-            text: 'Модельный ряд',
+            text: `${labels.ModelRange}`,
         },
         {
             id: 2,
             image: Image_Url + '/DealerCenters.jpg',
-            text: 'Дилерские центры',
+            text: `${labels.DealerCenters}`,
         },
         {
             id: 3,
             image: Image_Url + '/ServiceCenters.jpg',
-            text: 'Сервисные центры',
+            text: `${labels.ServiceCenters}`,
         },
         {
             id: 4,
             image: Image_Url + '/TestDrive.jpg',
-            text: 'Записаться на тест-драйв',
+            text: `${labels.ServiceCenters}`,
         },
     ];
 

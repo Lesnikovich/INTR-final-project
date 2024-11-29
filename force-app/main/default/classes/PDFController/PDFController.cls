@@ -4,8 +4,6 @@ public without sharing class PDFController {
     public String currencyAbbr { get; set; }
     public Decimal currencyScale { get; set; }
     public Decimal currencyRate { get; set; }
-    public String clientName { get; set; }
-    public String orderDetails { get; set; }
 
     public PDFController() {
         family = ApexPages.currentPage().getParameters().get('family');

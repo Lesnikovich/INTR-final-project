@@ -1,13 +1,14 @@
 import { LightningElement } from 'lwc';
+import labels from './labels';
 
 export default class CurrencySelector extends LightningElement {
+    labels = labels;
     currencyOptions = [
-        { label: 'BYN - Белорусский рубль', value: 'BYN' },
-        { label: 'RUB - Российский рубль', value: 'RUB' },
-        { label: 'USD - Доллар США', value: 'USD' },
-        { label: 'EUR - Евро', value: 'EUR' },
+        { label: `${this.labels.BYN}`, value: 'BYN' },
+        { label: `${this.labels.RUB}`, value: 'RUB' },
+        { label: `${this.labels.USD}`, value: 'USD' },
+        { label: `${this.labels.EUR}`, value: 'EUR' },
     ];
-
     selectedCurrency = '';
 
     connectedCallback() {

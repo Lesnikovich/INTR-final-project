@@ -34,64 +34,60 @@
 }
 
 .product-card:hover {
-    transform: translateY(-5px); /* Поднимается при наведении */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Увеличенная тень */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .product-image {
-    max-width: 200px; /* Увеличен размер изображения */
+    max-width: 200px;
     height: auto;
-    margin-bottom: 10px; /* Увеличен отступ */
-    border-radius: 8px; /* Легкое округление изображений */
+    margin-bottom: 10px;
+    border-radius: 8px;
 }
 
 .product-card p {
-    font-size: 1.2rem; /* Увеличенный размер текста */
-    font-weight: bold; /* Полужирный текст */
-    color: #333; /* Насыщенный черный */
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
     margin: 10px 0;
 }
 
-/* Модальное окно */
 .slds-modal {
-    display: flex; /* Flexbox для выравнивания */
-    justify-content: center; /* Горизонтальное центрирование */
-    align-items: center; /* Вертикальное центрирование */
-    height: 100vh; /* Высота окна равна высоте экрана */
-    width: 100%; /* Полная ширина */
-    position: fixed; /* Фиксация на экране */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed; 
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
-    z-index: 1050; /* Уровень отображения поверх других элементов */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1050; 
 }
 
 .slds-modal__container {
     display: flex;
-    flex-direction: column; /* Контент располагается по колонке */
-    justify-content: center; /* Центрирование содержимого */
-    align-items: center; /* Центрирование содержимого */
-    height: 90%; /* Заполняет почти всю высоту */
-    width: 90%; /* Заполняет почти всю ширину */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 90%;
     background-color: #fff;
     border-radius: 0.5rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Тень для модального окна */
-    overflow: hidden; /* Обрезает содержимое, если выходит за границы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
     padding: 0;
 }
 
-/* Задник */
 .slds-backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Более тёмный задник */
+    background: rgba(0, 0, 0, 0.6); 
     z-index: 1040;
 }
 
-/* Заголовок модального окна */
 .slds-modal__header {
     padding: 10px 15px;
     border-bottom: 1px solid #dcdcdc;
@@ -100,7 +96,6 @@
     font-weight: bold;
 }
 
-/* Контент модального окна */
 .slds-modal__content {
     padding: 10px;
     display: flex;
@@ -110,21 +105,18 @@
     margin-bottom: 10px;
 }
 
-/* Изображение */
 .slds-modal__content img {
     max-width: 100%;
     height: auto;
     border-radius: 4px; 
 }
 
-/* Текст описания */
 .slds-modal__content p {
     font-size: 1rem;
-    color: #555; /* Спокойный цвет текста */
+    color: #555;
     text-align: center;
 }
 
-/* Футер модального окна */
 .slds-modal__footer {
     padding: 10px 15px;
     display: flex;
@@ -140,10 +132,12 @@
 }
 
 @media (max-width:480px) {
+    .slds-modal__container {
+        font-size: 1rem;
+        height: auto;
+        max-height: 90%; 
+    }
     .slds-modal__header {
         font-size: 1.2rem; 
-    }
-    .slds-modal__container {
-        font-size: 1rem; 
     }
 }

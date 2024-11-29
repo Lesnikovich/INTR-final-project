@@ -1,7 +1,10 @@
 <apex:page controller="PDFController" renderAs="PDF" contentType="text/html;charset=UTF-8" applyHtmlTag="false" showHeader="false" applyBodyTag="false">
     <head>
         <style>
-            
+            a{
+                text-decoration: none;
+                color: orange;
+            }
         </style>
     </head>
     <body style="font-family: Arial Unicode MS, sans-serif; font-size: 14px; line-height: 1.6; margin: 20px; background-color: #f4f4f9; color: #333;">
@@ -14,10 +17,10 @@
         </table>
 
         <h1 style="color: #2980b9; font-size: 20px; margin-top: 40px;">
-            Модельный ряд: {!family}
+            Model range: {!family}
         </h1>
         <p style="font-size: 16px; color: #7f8c8d;">
-           Клиентская линия LADA : 
+           The client line LADA : 
            <a href="tel:+375293567407">
                 8 029 356 74 07
             </a>
@@ -26,8 +29,8 @@
         <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
             <thead style="background-color: #3498db; color: white; text-align: left; padding: 10px;">
                 <tr>
-                    <th style="padding: 10px; font-size: 16px;">Название</th>
-                    <th style="padding: 10px; font-size: 16px;">Цена ({!currencyAbbr})</th>
+                    <th style="padding: 10px; font-size: 16px;">Name</th>
+                    <th style="padding: 10px; font-size: 16px;">Price ({!currencyAbbr})</th>
                 </tr>
             </thead>
             <tbody>

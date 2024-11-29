@@ -8,6 +8,8 @@ import LadaLargusUniversal from '@salesforce/label/c.LadaLargusUniversal';
 import LadaGrantaLiftback from '@salesforce/label/c.LadaGrantaLiftback';
 import LadaVestaSW from '@salesforce/label/c.LadaVestaSW';
 import LadaNivaLegend3D from '@salesforce/label/c.LadaNivaLegend3D';
+import GetPrice from '@salesforce/label/c.GetPrice';
+import Close from '@salesforce/label/c.Close';
 
 
 
@@ -20,5 +22,7 @@ export default {
     LadaLargusUniversal,
     LadaGrantaLiftback,
     LadaVestaSW,
-    LadaNivaLegend3D
+    LadaNivaLegend3D,
+    GetPrice,
+    Close
 };

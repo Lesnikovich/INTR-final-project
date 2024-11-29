@@ -1,11 +1,23 @@
 <template>
-    <lightning-card title="Dealer Car Centers">
+    <lightning-card title={locationTitle}>
         <template if:true={carCenters}>
-            <div class="map-container">
-                <lightning-map 
+            <div class="container">
+                <lightning-map
                     map-markers={mapMarkers} 
-                    markers-title="Дилерские центры">
+                    markers-title={markersTitle}>
                 </lightning-map>
+                <div class="centers-list">
+                    <template for:each={carCenters} for:item="center">
+                        <div key={center.id} class="centers-list-item">
+                            <h3>{center.name}</h3>
+                            <p><span>Адрес:</span> {center.address.street}, {center.address.city}</p>
+                            <p><span>Серийный номер:</span> {center.serialNumber}</p>
+                            <p><span>Телефон:</span> {center.phone}</p>
+                            <p><span>Email:</span> {center.email}</p>
+                            <p><span>Время работы:</span> {center.workingHours}</p>
+                        </div>
+                    </template>
+                </div>
             </div>
         </template>
 
